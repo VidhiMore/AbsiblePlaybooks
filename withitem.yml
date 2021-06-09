@@ -1,0 +1,16 @@
+---
+- name: in this playbook we are going to see with item.
+  hosts: all
+  become: true
+  tasks:
+          - name: here we install multiple packages and we mentioned those packages as item list.
+            yum:
+                    name: ['tree', 'wget', 'httpd', 'make']
+                    state: present
+            notify:  here we statrt httpd service.
+     
+  handlers:
+          - name: here we statrt httpd service.
+            service:
+                    name: httpd
+                    state: started

@@ -1,0 +1,6 @@
+---
+- name: In this playbook we run role
+  hosts: all
+  become: true
+  roles:
+       - setup-my-role

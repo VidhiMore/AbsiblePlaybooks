@@ -1,0 +1,10 @@
+---
+- name: In this playbook we are going to create directory.
+  hosts: all
+  become: true
+  tasks:
+          - name: here KTdir2 directory create
+            file:
+                    path: /home/saurabh/KTdir2
+                    state: directory
+         

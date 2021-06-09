@@ -1,0 +1,13 @@
+---
+- name: In this playbook we are going to delete one file and one directory from both the host.
+  hosts: all
+  become: true
+  tasks:
+          - name: here we are going to delete KT1 File from both the host.
+            file:
+                    path: /home/saurabh/KT1
+                    state: absent
+          - name: here we are going to delete KTdir1  directpry from both the host.
+            file:    
+                    path: /home/saurabh/KTdir1
+                    state: absent      

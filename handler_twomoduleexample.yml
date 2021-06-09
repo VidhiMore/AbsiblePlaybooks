@@ -1,0 +1,15 @@
+---
+- name: Inthisplaybooh we are goingtoseehow handler will used and how notify will used to connect the main task and dependent task.
+  hosts: all
+  become: true
+  tasks:
+          - name: here we install httpd package.
+            yum:
+                    name: httpd
+                    state: present
+            notify: here we start the service.
+  handlers:         
+          - name:  here we start the service.
+            service: 
+                    name: httpd
+                    state: started

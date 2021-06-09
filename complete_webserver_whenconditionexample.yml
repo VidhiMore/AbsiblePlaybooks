@@ -1,0 +1,30 @@
+---
+- name: In this playbook we are goin to see complete webserver.
+  hosts: all
+  become: true
+  tasks:
+          - name: install httpd package in redhat.
+            yum:
+                    name: httpd
+                    state: present
+            when: ansible_os_family == "RedHat"
+          - name: start service for httpd package in redhat.
+            service: 
+                    name: httpd
+                    state: started
+            when: ansible_os_family == "RedHat"
+          - name: install apache2 package in debian.
+            apt:
+                    name: apache2
+                    state: present
+            when: ansible_os_family == "Debian"
+          - name: start service for apache2 package in debian.
+            service: 
+                    name: apache2
+                    state: started
+            when: ansible_os_family == "Debian"        
+          - name: copy index file from our location to html directory inside www directory.
+            copy:
+                    src: /home/saurabh/index.html
+                    dest: /var/www/html
+

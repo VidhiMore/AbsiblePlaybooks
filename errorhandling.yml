@@ -1,0 +1,15 @@
+---
+- name: In this playbook we are going to see how to handle errorlist.
+  hosts: all
+  become: true
+  tasks:
+          - name: here we install httpd package.
+            yum:
+                    name: https
+                    state: present
+            ignore_errors: yes 
+          - name: here we install tree package.
+            yum:
+                    name: tree
+                    state: present
+

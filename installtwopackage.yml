@@ -1,0 +1,13 @@
+---
+- name: In this playbook we are going to install two packages at a time in two hosts.
+  hosts: all
+  become: true
+  tasks:
+          - name: install tree package
+            yum:
+                    name: tree
+                    state: present
+          - name: install httpd package
+            yum:
+                   name: httpd
+                   state: present          

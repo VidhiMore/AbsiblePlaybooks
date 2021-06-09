@@ -1,0 +1,19 @@
+---
+# tasks file for setup-my-role
+- name: install httpd package in redhat.
+  yum:
+          name: httpd
+          state: present
+  when: ansible_os_family == "RedHat"
+  notify: start service for httpd package in redhat.
+- name: install apache2 package in debian.
+  apt:
+           name: apache2
+           state: present
+  when: ansible_os_family == "Debian"
+  notify: start service for apache2 package in debia
+- name: copy index file from our location to html directory inside www directory.
+  copy:
+            src: /home/saurabh/index.html
+            dest: /var/www/html
+

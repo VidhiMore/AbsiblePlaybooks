@@ -1,0 +1,10 @@
+---
+- name: Here we are going to copy index.html file from server to our both hosts.
+  hosts: all
+  become: true 
+  tasks:
+          - name: here we copy index file from server and paste it to hosts.
+            copy:
+                    src: /home/saurabh/index.html
+                    dest: /home/saurabh
+

@@ -1,0 +1,13 @@
+---
+- name: in this playbook we are going to create file
+  hosts: all
+  become: true
+  tasks:
+          - name: Here we create KT1 file.
+            file:
+                    path: /home/saurabh/KT1
+                    state: touch
+          - name: Here we create KT2 file
+            file: 
+                    path: /home/saurabh/KT2
+                    state: touch                   

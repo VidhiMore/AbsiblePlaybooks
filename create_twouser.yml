@@ -1,0 +1,11 @@
+---
+- name: This playbook create two user at a time in all hosts
+  hosts: all
+  become: true
+  tasks:
+          - name: task to create darshan user
+            user: 
+                   name: darshan
+          - name: task to create kalpana user
+            user:
+                    name: kalpana    

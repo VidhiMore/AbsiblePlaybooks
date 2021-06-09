@@ -1,0 +1,15 @@
+---
+- name: in this playbook we are going to extract username fromuserfile.
+  hosts: all
+  become: true
+  vars_files:
+     userfile.yml
+  tasks:
+          - name: here we declare first user "{{user1}}"
+            user:
+                    name: "{{user1}}"
+          - name: here we declare second user "{{user2}}" 
+            user: 
+                    name: "{{user2}}"         
+                  
+                        
